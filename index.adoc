@@ -8,3 +8,8 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 image::lorem.jpg[]
+
+Useful links :
+
+- https://docs.travis-ci.com/user/getting-started/[Getting started with Travis-CI]
+- https://docs.travis-ci.com/user/deployment/pages/[Configuring Travis-CI for Github Pages deployment]
