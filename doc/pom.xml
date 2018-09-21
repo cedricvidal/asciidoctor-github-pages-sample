@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>asciidoctor-github-pages-sample</artifactId>
+        <groupId>com.quicksign.poc</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>asciidoctor-github-pages-sample-doc</artifactId>
+
+    <build>
+        <directory>${basedir}/../target</directory>
+        <plugins>
+
+            <plugin>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctor-maven-plugin</artifactId>
+                <configuration>
+                    <sourceDirectory>${basedir}/..</sourceDirectory>
+                    <preserveDirectories>true</preserveDirectories>
+                    <attributes>
+                        <project-groupId>${project.groupId}</project-groupId>
+                        <project-artifactId>${project.artifactId}</project-artifactId>
+                        <project-version>${project.version}</project-version>
+                    </attributes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>asciidoc-to-html</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <backend>html5</backend>
+                            <sourceHighlighter>coderay</sourceHighlighter>
+                            <attributes>
+                                <imagesdir>.</imagesdir>
+                                <toc>left</toc>
+                                <toclevels>4</toclevels>
+                                <icons>font</icons>
+                                <sectanchors>true</sectanchors>
+                                <!-- set the idprefix to blank -->
+                                <idprefix/>
+                                <idseparator>-</idseparator>
+                                <docinfo1>true</docinfo1>
+                            </attributes>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/..</directory>
+                                    <targetPath>${project.build.directory}/generated-docs/</targetPath>
+                                    <includes>
+                                        <include>**/*.jpg</include>
+                                        <include>**/*.gif</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
